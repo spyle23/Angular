@@ -6,6 +6,7 @@ import { PageLayoutComponent } from './page-layout.component';
 import { HeaderComponent } from 'src/app/features/header/header.component';
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -13,7 +14,7 @@ import { HeaderComponent } from 'src/app/features/header/header.component';
   ],
   imports: [
     CommonModule,
-    PageLayoutRoutingModule
+    PageLayoutRoutingModule,
   ]
 })
 export class PageLayoutModule { }

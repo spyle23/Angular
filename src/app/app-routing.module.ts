@@ -5,7 +5,9 @@ const routes: Routes = [
     {
         path: 'pages',
         loadChildren: () => import('./pages/page-layout/page-layout.module').then(m => m.PageLayoutModule)
-      }
+    },
+    {path: '', redirectTo:'pages', pathMatch:'full'},
+    
 ]; // sets up routes constant where you define your routes
 
 // configures NgModule imports and exports
