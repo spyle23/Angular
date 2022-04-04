@@ -3,16 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
-import { AppSnapComponent } from './face-snap/face-snap.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoanCreateComponent } from './features/loan-create/loan-create.component';
+import { LoanListComponent } from './features/loan-list/loan-list.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppSnapComponent
+    LoanCreateComponent,
+    LoanListComponent,
   ],
   imports: [
     FormsModule,
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
