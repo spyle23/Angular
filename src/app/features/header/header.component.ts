@@ -12,4 +12,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  hide:boolean  =true;
+  hidden(){
+    this.hide=false;
+  }
+
 }
