@@ -13,7 +13,7 @@
 .headerElement{
     position:absolute;
     top:3px;
-    right:5px;
+    right:12px;
     height:60px;
     margin:3px 3px;
     display:flex;
@@ -21,9 +21,8 @@
 }
 .headerElement-image{
     height:60px;
-    width:70px;
-    padding:10px;
-    
+    width:60px;
+    margin:0 25px;
 }
 .headerElement-text{
     width:130px;
