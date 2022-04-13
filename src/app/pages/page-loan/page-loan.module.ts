@@ -5,6 +5,7 @@ import { PageLoanRoutingModule } from './page-loan-routing.module';
 import { LoanModule } from 'src/app/features/loan/loan.module';
 
 
+
 @NgModule({
   declarations: [
     
@@ -12,7 +13,7 @@ import { LoanModule } from 'src/app/features/loan/loan.module';
   imports: [
     CommonModule,
     PageLoanRoutingModule,
-    LoanModule
+    LoanModule,
   ]
 })
 export class PageLoanModule { }

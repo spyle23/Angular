@@ -5,6 +5,8 @@ import { PageLayoutRoutingModule } from './page-layout-routing.module';
 import { PageLayoutComponent } from './page-layout.component';
 import { HeaderComponent } from 'src/app/features/header/header.component';
 import { SideMenuComponent } from 'src/app/features/side-menu/side-menu.component';
+import { BreadcrumbComponent } from 'src/app/features/breadcrumb/breadcrumb.component';
+
 
 
 
@@ -12,7 +14,8 @@ import { SideMenuComponent } from 'src/app/features/side-menu/side-menu.componen
   declarations: [
     HeaderComponent,
     PageLayoutComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    BreadcrumbComponent
   ],
   imports: [
     CommonModule,

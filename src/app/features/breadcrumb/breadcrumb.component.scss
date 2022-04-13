@@ -1,0 +1,20 @@
+
+.breadcrumb-item{
+    font-weight:bold;
+    border:1%;
+}
+.sidemenu-item{
+    list-style-type:none;  
+    margin-left:0%;
+    border: solid 0.5px;
+    border-radius:12%;
+    font-style: italic;
+}
+.sidemenu{
+    display:flex;
+    justify-content:space-between;
+    margin-left:28%;
+}
+.breadcrumb{
+    margin-left:28%;
+}
