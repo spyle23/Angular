@@ -6,15 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  hide!:boolean;
+  isActive!:boolean;
   constructor() { }
 
   ngOnInit(): void {
+    this.hide = true;
+    this.isActive = false;
   }
 
-  hide:boolean  =true;
+
   hidden(){
-    this.hide=false;
+    if (this.isActive) {
+      this.hide =true;
+      this.isActive = false;
+    }
+    else{
+      this.hide = false;
+      this.isActive = true;
+    }
   }
 
 }

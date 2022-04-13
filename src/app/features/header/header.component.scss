@@ -17,6 +17,11 @@
     margin:3px 3px;
     display:flex;
     flex-direction: row;
+    div{
+        p{
+            cursor: pointer;
+        }
+    }
 }
 .headerElement-image{
     height:60px;
@@ -35,7 +40,6 @@
     right:5px;
     width:150px;
     color: gray;
-    background: white;
     border:solid 2px gray;
     border-radius: 5px;
     text-align: center;
@@ -47,15 +51,12 @@
     position:absolute;
     top:-9px;
     right:10px;
-    border-top:solid 2px gray;
-    border-left:solid 2px gray;
-    background: white ;/*border:solid 2px red;*/
+    border-top:solid 2px rgb(14, 14, 14);
+    border-left:solid 2px rgb(14, 14, 14);
     transform:rotate(45deg);
     /*z-index:-1;*/
 }
 .headerElementHide > div{
-    border-top:solid 1px gray;
-    border-bottom:solid 1px gray;
     padding:5px 0;
 }
 
