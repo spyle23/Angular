@@ -1,1 +1,22 @@
-<p>Header</p>
+<div class="header">
+    <div class="headerElement">
+        <img class="headerElement-image" src="../../assets/profil.png" alt="logo">
+        <div>
+            <p (click)="hidden()" class="headerElement-text">utilisateur connecté</p>
+            
+        </div>
+        <div [hidden]="hide"  class="headerElementHide">
+            <div class="headerElement-hide-Cuser">
+                <p>Connected User</p>
+            </div>
+            <div class="headerElement-hide-about">
+                <p>Calcul rapide</p>
+                <p>Paramètres</p>
+            </div>
+            <div class="headerElement-deconnection">
+                <p>Se déconnecter</p>
+            </div>
+        </div>
+    </div>
+    
+</div>
