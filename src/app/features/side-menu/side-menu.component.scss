@@ -46,4 +46,9 @@ div a{
 div.sideMenu{
     position: sticky;
     right: 0;
+    ul{
+      li{
+        width: 300px;
+      }
+    }
 }

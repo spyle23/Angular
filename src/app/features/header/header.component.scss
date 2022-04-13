@@ -3,12 +3,11 @@
 }
 .header{
     position:fixed;
-    top:0;
-    left:0;
+    top:0;  
     right:0;
     height:70px; 
-    min-width: 760px;
-    border-bottom: solid 3px rgba($color: #375a0aaf, $alpha: 1.0); 
+    width: 73%;
+    border-bottom: solid 3px rgba($color: #5d5e5caf, $alpha: 1.0); 
 }
 .headerElement{
     position:absolute;
