@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
-import { PageLayoutComponent } from './pages/page-layout/page-layout.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'pages', pathMatch:'full'},
     {
         path: 'pages',
         loadChildren: () => import('./pages/page-layout/page-layout.module').then(m => m.PageLayoutModule)
-        
     }
     
 ]; // sets up routes constant where you define your routes
