@@ -7,7 +7,8 @@ const routes: Routes = [
     {
         path: 'pages',
         loadChildren: () => import('./pages/page-layout/page-layout.module').then(m => m.PageLayoutModule),
-        component: PageLayoutComponent
+        component: PageLayoutComponent,
+        
     }
     
 ]; // sets up routes constant where you define your routes

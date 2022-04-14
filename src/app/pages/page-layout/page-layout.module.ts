@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { PageLayoutRoutingModule } from './page-layout-routing.module';
 import { PageLayoutComponent } from './page-layout.component';
-import { HeaderComponent } from 'src/app/features/header/header.component';
-import { SideMenuComponent } from 'src/app/features/side-menu/side-menu.component';
-import { BreadcrumbComponent } from 'src/app/features/breadcrumb/breadcrumb.component';
+import { HeaderComponent } from 'src/app/features/layout/header/header.component';
+import { SideMenuComponent } from 'src/app/features/layout/side-menu/side-menu.component';
+import { PageLoanModule } from '../page-loan/page-loan.module';
 
 
 
@@ -14,11 +14,11 @@ import { BreadcrumbComponent } from 'src/app/features/breadcrumb/breadcrumb.comp
     HeaderComponent,
     PageLayoutComponent,
     SideMenuComponent,
-    BreadcrumbComponent
   ],
   imports: [
     CommonModule,
     PageLayoutRoutingModule,
+    PageLoanModule
   ]
 })
 export class PageLayoutModule { }
