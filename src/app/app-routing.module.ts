@@ -5,7 +5,7 @@ const routes: Routes = [
   {path: '', redirectTo:'pages', pathMatch:'full'},
     {
         path: 'pages',
-        loadChildren: () => import('./pages/page-layout/page-layout.module').then(m => m.PageLayoutModule),
+        loadChildren: () => import('./pages/page-layout/page-layout.module').then(m => m.PageLayoutModule)
     }
     
 ]; // sets up routes constant where you define your routes

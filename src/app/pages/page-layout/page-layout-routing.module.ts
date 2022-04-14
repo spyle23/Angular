@@ -4,7 +4,8 @@ import { PageLayoutComponent } from './page-layout.component';
 
 const routes: Routes = [
   {path:'', component:PageLayoutComponent, children:[
-    {path:'loan', loadChildren: () => import('../page-loan/page-loan.module').then(m => m.PageLoanModule)}
+    {path:'loan', loadChildren: () => import('../page-loan/page-loan.module').then(m => m.PageLoanModule)
+}
   ]}
 ];
 

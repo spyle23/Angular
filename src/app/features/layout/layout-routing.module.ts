@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoanCreateComponent } from '../loan/loan-create/loan-create.component';
 
 const routes: Routes = [
-  {path:'create', component:LoanCreateComponent}
 ];
 
 @NgModule({
