@@ -6,8 +6,7 @@ const routes: Routes = [
   {path: '', redirectTo:'pages', pathMatch:'full'},
     {
         path: 'pages',
-        loadChildren: () => import('./pages/page-layout/page-layout.module').then(m => m.PageLayoutModule),
-        component: PageLayoutComponent,
+        loadChildren: () => import('./pages/page-layout/page-layout.module').then(m => m.PageLayoutModule)
         
     }
     
