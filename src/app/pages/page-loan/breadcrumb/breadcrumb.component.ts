@@ -20,7 +20,7 @@ export class BreadcrumbComponent implements OnInit {
   }
   onClick(index: number, event: any): void{
       event.stopPropagation();
-        this.breadcrumb.delete(index);
+      this.breadcrumb.delete(index);
   }
 
 }

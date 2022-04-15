@@ -12,12 +12,9 @@ export class BreadcrumbsService {
   getBread(): any[]{
     return this.myBreadCrumbs;
   }
-  replace(menu:Menu): void{
-    this.myBreadCrumbs[1].content = menu.content;
-    this.myBreadCrumbs[1].path = menu.path; 
-  }
+
   modify(menu: Menu, i: number): void{
-    i===1? this.myBreadCrumbs.push(menu) : this.replace(menu);  
+    i===1? this.myBreadCrumbs.push(menu) : this.myBreadCrumbs.splice(1,1,menu);   
   }
   delete(index: number): void{
     this.myBreadCrumbs.splice(index+1);
