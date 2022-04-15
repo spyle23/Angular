@@ -1,11 +1,12 @@
 
 
-<nav aria-label="breadcrumb">
+<nav aria-label="breadcrumb ">
     <ul class="breadcrumb" id="accueil">
         <li 
-             class="breadcrumb-item" routerLinkActive="active" 
-             *ngFor="let breadCrumb of breadCrumbs; index as index" >
-             <a (click)="onClick(index, $event)" [routerLink]="breadCrumb.path"> {{breadCrumb.menu}}</a></li>
+             class="breadcrumb-item" 
+             *ngFor="let breadCrumb of breadcrumb.myBreadCrumbs; index as index" >
+             <a routerLinkActive="active"  (click)="onClick(index, $event)" [routerLink]="breadCrumb.path"> {{breadCrumb.content}}</a>
+        </li>
     </ul>
 </nav>
 

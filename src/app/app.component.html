@@ -1,5 +1,11 @@
 <div class="container-fluid p-0 d-flex">
-    <app-side-menu></app-side-menu>
-    <app-header></app-header>
-    <router-outlet></router-outlet>
+    <div class="left">
+        <app-side-menu></app-side-menu>
+    </div>
+    <div class="right">
+        <app-header></app-header>
+        <app-breadcrumb></app-breadcrumb>
+        <router-outlet></router-outlet>
+    </div>
+    
 </div>
