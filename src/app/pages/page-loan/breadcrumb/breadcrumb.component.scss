@@ -1,20 +1,8 @@
-.breadcrumb-item{
-    font-weight:bold;
-    border: solid 0.5px;
-    border-radius:12px;
-    margin:10px;
-    background-color: rgba(54, 52, 52, 0.24);
-    padding-right:10px;
-    padding-left:10px;
-}
-.breadcrumb{
-    margin-left:28%;
-    position:absolute;
-    top:17%;
-}
-#accueil{
-    margin-left:42%;
-    margin-top:auto;
-    position:absolute;
-    top:10%;
+nav{
+    position: sticky;
+    top: 18%;
+    left: 30%;
+    width: 80%;
+    height: 100px;
+    margin-bottom: 10px;
 }

@@ -1,21 +1,21 @@
-::-webkit-scrollbar {
-    width: 10px;
-  }
+// ::-webkit-scrollbar {
+//     width: 10px;
+//   }
   
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background:var(--bs-dark); 
-  }
+//   /* Track */
+//   ::-webkit-scrollbar-track {
+//     background:var(--bs-dark); 
+//   }
    
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
+//   /* Handle */
+//   ::-webkit-scrollbar-thumb {
+//     background: #888; 
+//   }
   
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+//   /* Handle on hover */
+//   ::-webkit-scrollbar-thumb:hover {
+//     background: #555; 
+//   }
 
 
 .nav-link:hover {
@@ -36,7 +36,7 @@ svg{
 }
 ul.nav{
     height: 40%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 div a{
     margin-left: auto;
@@ -45,10 +45,14 @@ div a{
 }
 div.sideMenu{
     position: sticky;
+    top: 0;
     right: 0;
+    a{
+      border-bottom: 2px solid #525252;
+    }
     ul{
       li{
-        width: 300px;
+        width: 100%;
       }
     }
 }
