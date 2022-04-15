@@ -11,14 +11,8 @@ export class SideMenuComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onArrow1(): void{
-    
-  }
-  onArrow2(): void{
-
-  }
-  onArrow3(): void{
-    
+  onClick(path: string): void{
+    this.router.navigate([path]);
   }
 
 }
