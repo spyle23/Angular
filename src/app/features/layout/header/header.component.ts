@@ -17,14 +17,9 @@ export class HeaderComponent implements OnInit {
 
 
   hidden(){
-    if (this.isActive) {
-      this.hide =true;
-      this.isActive = false;
-    }
-    else{
-      this.hide = false;
-      this.isActive = true;
-    }
+
+    this.isActive=!this.isActive;
+    this.hide=!this.hide;
   }
 
 }
