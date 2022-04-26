@@ -7,7 +7,7 @@ import { Menu } from '../model/menu.model';
 })
 export class BreadcrumbsService {
     myBreadCrumbs:BreadCrumb[] =[
-    {content: 'acceuil', path:''}
+    {content: 'accueil', path:''}
   ];
   getBread(): any[]{
     return this.myBreadCrumbs;

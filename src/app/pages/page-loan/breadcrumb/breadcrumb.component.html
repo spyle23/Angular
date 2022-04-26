@@ -5,7 +5,7 @@
         <li 
              class="breadcrumb-item" 
              *ngFor="let breadCrumb of breadcrumb.myBreadCrumbs; index as index" >
-             <a routerLinkActive="active"  (click)="onClick(index, $event)" [routerLink]="breadCrumb.path"> {{breadCrumb.content}}</a>
+             <a  (click)="onClick(index, $event)" [routerLink]="breadCrumb.path"> {{breadCrumb.content}}</a>
         </li>
     </ul>
 </nav>
