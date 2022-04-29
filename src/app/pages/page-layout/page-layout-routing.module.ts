@@ -6,7 +6,7 @@ import { PageLayoutComponent } from './page-layout.component';
 const routes: Routes = [
   {path:'', component:PageLayoutComponent},
   {path:'loan',loadChildren: () => import('../page-loan/page-loan.module').then(m => m.PageLoanModule)},
-  {path:'**', component:NotFoundComponent}
+  
 ];
 
 @NgModule({

@@ -16,7 +16,7 @@ import { PageLoanModule } from './pages/page-loan/page-loan.module';
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
+    NotFoundComponent
   ],
   imports: [
     FormsModule,
