@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "loan-list.component.scss"
-    ],
-    "names": [],
-    "file": "loan-list.component.css"
-}
