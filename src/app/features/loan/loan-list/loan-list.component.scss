@@ -1,0 +1,25 @@
+@import '../../../@shared/style/couleur.scss';
+
+tbody{
+    th{
+        button{
+            border-radius: 50%;
+            i{
+               opacity: 0;
+            }
+        }
+        button:hover{
+            i{
+                opacity: 1;
+                color: white;
+            }
+        }
+    }
+}
+
+.modifyGrey{
+    background-color: $secondary;
+}
+.modifyYellow{
+    background-color: var(--bs-primary);
+}
