@@ -27,7 +27,7 @@ import { trigger, style, keyframes, transition, animate, query, stagger } from "
 export class LoanListComponent implements OnInit {
   listePret: Client[] = liste;
   position!:number;
-  tableSize: number=3;
+  tableSize: number=5;
   count:number = 0;
   constructor() { }
 

@@ -20,7 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
 
-    NgxPaginationModule
+    NgxPaginationModule,
 
     ReactiveFormsModule
 
