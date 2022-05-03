@@ -1,2 +1,120 @@
 
-
+<main class="d-flex justify-content-center mx-auto">
+  <div class="col-12">
+    <div class="py-0 mb-3">
+      <h2 class="text-dark text-center bg-light">Formulaire de saisie d'un prêt</h2>
+      <div class="underline"></div>
+    </div>
+    <form [formGroup]="formulaire" class="form container-fluid rounded p-2 p-md-3" (ngSubmit)="onSubmit()" >
+      <div class="row">
+        <div class="col-md-4">
+          <label for="resp">Responsable</label>
+          <select
+            name="choixresp"
+            class="form-control reg-opacity"
+            id="resp"
+            formControlName="responsable"
+          >
+            <option *ngFor="let responsable of responsables" [value]="responsable.firstName +' '+responsable.lastName">{{responsable.firstName+' '+responsable.lastName}}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="sr-only" for="inlineFormInputGroup">Montant prêt</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Ar</div>
+            </div>
+            <input
+              type="number"
+              name="pret"
+              class="form-control reg-opacity"
+              id="inlineFormInputGroup"
+              min="0"
+              placeholder="Montant prêt"
+              formControlName="montantPret"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="percentage">Pourcentage</label>
+          <input
+            type="number"
+            name="pour"
+            id="percentage"
+            max="100"
+            class="form-control reg-opacity"
+            formControlName="pourcentage"
+          />
+        </div>
+      </div>
+      <div class="row"></div>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="loanDate">Date du prêt</label>
+          <input type="date" class="form-control reg-opacity" id="loanDate" formControlName="datePret" />
+        </div>
+        <div class="col-md-6">
+          <label for="reimbursementDate">Date de remboursement</label>
+          <input
+            type="date"
+            class="form-control reg-opacity"
+            id="reimbursementDate"
+            formControlName="dateRemboursement"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="paymentMode">Mode de payement du capital</label>
+          <select
+            name="paymentMode"
+            id="paymentMode"
+            class="form-control reg-opacity"
+            formControlName="modePayementCap"
+          >
+            <option *ngFor="let modePayement of modePayements" [value]="modePayement">{{modePayement}}</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="interestPaymentMode">Mode de payement des intérêts</label>
+          <select
+            name="interestPaymentMode"
+            id="interestPaymentMode"
+            class="form-control reg-opacity"
+            formControlName="modePayementInt"
+          >
+            <option *ngFor="let modePayement of modePayements" [value]="modePayement">{{modePayement}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="reimbursementMode">Mode de remboursement</label>
+          <select
+            name="reimbursementMode"
+            id="reimbursementMode"
+            class="form-control reg-opacity"
+            formControlName="modeRemboursement"
+          >
+            <option *ngFor="let modeRemboursement of modeRemboursements" [value]="modeRemboursement">{{modeRemboursement}}</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <label for="comment">Commentaire</label>
+          <textarea
+            name="comment"
+            id="comment"
+            rows="5"
+            class="form-control reg-opacity"
+            placeholder="Ajouter un commentaire..."
+            formControlName="commentaire"
+          ></textarea>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between mt-3">
+        <p class="note">enregistrer une note ici</p>
+        <button class="btn btn-secondary">enregistrer</button>
+      </div>
+    </form>
+  </div>
+</main>
