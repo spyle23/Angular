@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">ACTION</th>
@@ -11,12 +11,28 @@
         <th scope="col">MODE DE PAIEMENT</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+    <tbody [@listAnimation] ="listePret" >
+      <tr *ngFor="let client of listePret | paginate:{
+        itemsPerPage:tableSize,
+        currentPage:position,
+        totalItems:count
+      }; let i = index" >
+          <th scope="row">
+            <button class="btn bg-dark"><i class="bi bi-eye"></i></button>
+            <button [ngClass]="{modifyGrey: i%2===0, modifyYellow: i%2!==0}" class="btn "><i class="bi bi-pencil"></i></button>
+          </th>
+          <td >{{client.client}}</td>
+          <td >{{client.montantPret}}</td>
+          <td >{{client.datePret | date:"d/MM/yyyy"}}</td>
+          <td >{{client.finContrat | date:"d/MM/yyyy"}}</td>
+          <td >{{client.montantInteret}}</td>
+          <td >{{client.pourcentage}}</td>
+          <td >{{client.modePayement}}</td>
       </tr>
     </tbody>
   </table>
+  <div class="d-flex justify-content-center">
+    <pagination-controls previousLabel="Prev"
+    nextLabel="Next" (pageChange)="onTableChange($event)" >
+    </pagination-controls>
+  </div>

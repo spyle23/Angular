@@ -10,7 +10,7 @@ export const liste: Client[] = [
         pourcentage: 10,
         modePayement: "Mvola"
     },{
-        client:"Rabe",
+        client:"Randria",
         montantPret:1000,
         datePret: new Date(),
         finContrat: new Date(),
@@ -18,7 +18,7 @@ export const liste: Client[] = [
         pourcentage: 10,
         modePayement: "Mvola"
     },{
-        client:"Rabe",
+        client:"Rakoto",
         montantPret:1000,
         datePret: new Date(),
         finContrat: new Date(),
@@ -26,7 +26,7 @@ export const liste: Client[] = [
         pourcentage: 10,
         modePayement: "Mvola"
     },{
-        client:"Rabe",
+        client:"Rabema",
         montantPret:1000,
         datePret: new Date(),
         finContrat: new Date(),
@@ -34,7 +34,7 @@ export const liste: Client[] = [
         pourcentage: 10,
         modePayement: "Mvola"
     },{
-        client:"Rabe",
+        client:"Ravala",
         montantPret:1000,
         datePret: new Date(),
         finContrat: new Date(),
@@ -42,13 +42,13 @@ export const liste: Client[] = [
         pourcentage: 10,
         modePayement: "Mvola"
     },{
-        client:"Rabe",
-        montantPret:1000,
+        client:"Rasoa",
+        montantPret:100,
         datePret: new Date(),
         finContrat: new Date(),
-        montantInteret: 2000,
+        montantInteret: 200,
         pourcentage: 10,
-        modePayement: "Mvola"
+        modePayement: "Virement"
     },{
         client:"Rabe",
         montantPret:1000,
