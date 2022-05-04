@@ -1,4 +1,9 @@
-<table class="table table-striped">
+<div  class="col-3 d-flex justify-content-flext-end">
+  <input type="text" name="search" id="searchClient" [formControl]="search" class="form-control "><button *ngIf="listePret$ |async" (click)="onSearch()" class="btn"><i class="bi bi-search"></i></button>
+</div>
+
+
+<table *ngIf="listePrets " class="table table-striped">
     <thead>
       <tr>
         <th scope="col">ACTION</th>
@@ -11,8 +16,8 @@
         <th scope="col">MODE DE PAIEMENT</th>
       </tr>
     </thead>
-    <tbody [@listAnimation] ="listePret" >
-      <tr *ngFor="let client of listePret | paginate:{
+    <tbody  [@listAnimation] ="listePrets" >
+      <tr *ngFor="let client of listePrets | paginate:{
         itemsPerPage:tableSize,
         currentPage:position,
         totalItems:count
