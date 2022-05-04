@@ -66,11 +66,11 @@ export const liste: Client[] = [
         pourcentage: 10,
         modePayement: "Mvola"
     },{
-        client:"Rabe",
-        montantPret:1000,
+        client:"Rakoto",
+        montantPret:100,
         datePret: new Date(),
         finContrat: new Date(),
-        montantInteret: 2000,
+        montantInteret: 250,
         pourcentage: 10,
         modePayement: "Mvola"
     },{
@@ -82,13 +82,13 @@ export const liste: Client[] = [
         pourcentage: 10,
         modePayement: "Mvola"
     },{
-        client:"Rabe",
-        montantPret:1000,
+        client:"Rakoto",
+        montantPret:150,
         datePret: new Date(),
         finContrat: new Date(),
-        montantInteret: 2000,
+        montantInteret: 200,
         pourcentage: 10,
-        modePayement: "Mvola"
+        modePayement: "virement bancaire"
     },{
         client:"Rabe",
         montantPret:1000,
