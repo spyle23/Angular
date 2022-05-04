@@ -1,0 +1,28 @@
+@import '../../../@shared/style/couleur.scss';
+
+tbody{
+    th{
+        button{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            i{
+               opacity: 1;
+               color: white;
+            }
+        }
+    }
+}
+
+
+.table{
+    font-size: small;
+}
+
+.modifyGrey{
+    background-color: $secondary;
+}
+.modifyYellow{
+    background-color: var(--bs-primary);
+}
+

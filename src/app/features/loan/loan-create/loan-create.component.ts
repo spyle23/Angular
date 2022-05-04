@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Responsable } from 'src/app/@shared/model/Responsable.model';
+import { PayementService } from 'src/app/@shared/Services/payement.service';
+import { ResponsableService } from 'src/app/@shared/Services/responsable.service';
 
 @Component({
   selector: 'app-loan-create',
@@ -6,10 +10,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loan-create.component.scss']
 })
 export class LoanCreateComponent implements OnInit {
-
-  constructor() { }
+  responsables!: Responsable[];
+  modePayements!:string[];
+  modeRemboursements!:string[];
+  formulaire!:FormGroup;
+  constructor(private builder: FormBuilder, private responsableService: ResponsableService, private payementService: PayementService) { }
 
   ngOnInit(): void {
+    this.responsables = this.responsableService.getResponsables();
+    this.modePayements = this.payementService.getModePayements();
+    this.modeRemboursements = this.payementService.getModeRemboursements();
+
+    this.formulaire = this.builder.group({
+      responsable:[null, [Validators.required]],
+      montantPret:null,
+      pourcentage:null,
+      datePret:null,
+      dateRemboursement:null,
+      modePayementCap:null,
+      modePayementInt:null,
+      modeRemboursement:null,
+      commentaire:null
+    })
+  }
+  onSubmit(): void{
+    console.log(this.formulaire.value);
   }
 
 }

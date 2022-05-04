@@ -1,8 +1,18 @@
+@import '../../../@shared/style/couleur.scss';
+
 nav{
-    position: sticky;
-    top: 18%;
-    left: 30%;
     width: 80%;
     height: 100px;
     margin-bottom: 10px;
+    ul{
+        li{
+            a{
+                text-decoration: none;
+                color: $secondary;
+            }
+            a.first{
+                color: black;
+            }
+        }
+    }
 }

@@ -6,17 +6,15 @@ import { Menu } from '../model/menu.model';
 })
 export class ServiceService {
   @Input() menus:Menu[] = [
-    {content:"liste des prets", path:'loan/liste'},
+    {content:"Liste des prets", path:'loan/list'},
     {content:"Enregistrer un nouveau pret", path:'loan/create'},
-    {content:"calendrier de remboursement", path:''},
+    {content:"Calendrier de remboursement", path:'loan/calendar'}
   ]
   constructor() { }
   getAllMenu(): Menu[]{
-    console.log(this.menus);
     return this.menus;
   }
   getMenu(index: number): Menu{
-    console.log(this.menus[index]);
     return this.menus[index];
   }
 

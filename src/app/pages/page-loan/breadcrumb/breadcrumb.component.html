@@ -1,11 +1,11 @@
 
 
-<nav aria-label="breadcrumb ">
+<nav aria-label="breadcrumb " class="d-flex mx-4 justify-content-start align-items-center">
     <ul class="breadcrumb" id="accueil">
         <li 
              class="breadcrumb-item" 
              *ngFor="let breadCrumb of breadcrumb.myBreadCrumbs; index as index" >
-             <a routerLinkActive="active"  (click)="onClick(index, $event)" [routerLink]="breadCrumb.path"> {{breadCrumb.content}}</a>
+             <a [ngClass]="{first: index===0}" (click)="onClick(index, $event)" [routerLink]="breadCrumb.path"> {{breadCrumb.content}}</a>
         </li>
     </ul>
 </nav>

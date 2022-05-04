@@ -1,21 +1,26 @@
-// ::-webkit-scrollbar {
-//     width: 10px;
-//   }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Water+Brush&display=swap');
+
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
   
-//   /* Track */
-//   ::-webkit-scrollbar-track {
-//     background:var(--bs-dark); 
-//   }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background:var(--bs-dark); 
+  }
    
-//   /* Handle */
-//   ::-webkit-scrollbar-thumb {
-//     background: #888; 
-//   }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
   
-//   /* Handle on hover */
-//   ::-webkit-scrollbar-thumb:hover {
-//     background: #555; 
-//   }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 
 
 .nav-link:hover {
@@ -43,6 +48,10 @@ div a{
     margin-right: auto;
     transform: translateX(-10px);
 }
+button.btn{
+    font-size: 2em;
+    font-family: 'Playfair Display', serif;
+}
 div.sideMenu{
     position: sticky;
     top: 0;
@@ -55,4 +64,7 @@ div.sideMenu{
         width: 100%;
       }
     }
+}
+.active{
+    background-color: #525252;
 }

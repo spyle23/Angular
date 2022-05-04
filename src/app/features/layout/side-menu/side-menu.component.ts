@@ -21,7 +21,7 @@ export class SideMenuComponent implements OnInit {
   }
   onClick(index: number): void{
     this.i++;
-    this.router.navigate([this.sideMenus[index].path]);
+    //this.router.navigate([this.sideMenus[index].path]);
     this.menuByIndex = this.service.getMenu(index);
     this.breadcrumb.modify(this.menuByIndex, this.i);
   }
