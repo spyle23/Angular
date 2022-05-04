@@ -29,7 +29,6 @@ import { filter, Observable, tap } from 'rxjs';
 })
 export class LoanListComponent implements OnInit {
   listePrets!:Client[];
-  listePrets2!:Client[];
   listePret$!:Observable <string>
   position!:number;
   tableSize: number=5;

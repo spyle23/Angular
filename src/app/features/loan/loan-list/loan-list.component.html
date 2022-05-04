@@ -1,7 +1,11 @@
-<div  class="col-3 d-flex justify-content-flext-end">
-  <input type="text" name="search" id="searchClient" [formControl]="search" class="form-control "><button *ngIf="listePret$ |async" (click)="onSearch()" class="btn"><i class="bi bi-search"></i></button>
+
+<div class="conteneur-search d-flex justify-content-end my-3">
+  <div  class="search col-3 d-flex">
+    <input type="text" name="search" id="searchClient" [formControl]="search" class="form-control "><button  (click)="onSearch()" class="btn"><i class="bi bi-search"></i></button>
+  </div>
 </div>
 
+<i *ngIf="listePret$|async"></i>
 
 <table *ngIf="listePrets " class="table table-striped">
     <thead>
@@ -22,9 +26,9 @@
         currentPage:position,
         totalItems:count
       }; let i = index" >
-          <th scope="row">
-            <button class="btn bg-dark"><i class="bi bi-eye"></i></button>
-            <button [ngClass]="{modifyGrey: i%2===0, modifyYellow: i%2!==0}" class="btn "><i class="bi bi-pencil"></i></button>
+          <th scope="row" class="d-flex"> 
+            <button class="btn bg-dark d-flex justify-content-center align-items-center"><i class="bi bi-eye"></i></button>
+            <button [ngClass]="{modifyGrey: i%2===0, modifyYellow: i%2!==0}" class="btn d-flex justify-content-center align-items-center"><i class="bi bi-pencil"></i></button>
           </th>
           <td >{{client.client}}</td>
           <td >{{client.montantPret}}</td>

@@ -3,18 +3,20 @@
 tbody{
     th{
         button{
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             i{
-               opacity: 0;
-            }
-        }
-        button:hover{
-            i{
-                opacity: 1;
-                color: white;
+               opacity: 1;
+               color: white;
             }
         }
     }
+}
+
+
+.table{
+    font-size: small;
 }
 
 .modifyGrey{
