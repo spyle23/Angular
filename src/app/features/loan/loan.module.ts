@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-   LoanCreateComponent,
+    LoanCreateComponent,
    LoanListComponent,
    LoanCalendarComponent
   ],

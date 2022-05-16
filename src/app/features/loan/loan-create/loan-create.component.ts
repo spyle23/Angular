@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Responsable } from 'src/app/@shared/model/Responsable.model';
-import { PayementService } from 'src/app/@shared/Services/payement.service';
-import { ResponsableService } from 'src/app/@shared/Services/responsable.service';
+import { Responsable } from 'src/app/core/model/Responsable.model';
+import { PayementService } from 'src/app/core/service/payement.service';
+import { ResponsableService } from 'src/app/core/service/responsable.service';
 
 @Component({
   selector: 'app-loan-create',
