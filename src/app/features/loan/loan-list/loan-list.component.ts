@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from 'src/app/@shared/model/client.model';
-import { liste } from 'src/app/@shared/model/liste';
+
 import { trigger, style, keyframes, transition, animate, query, stagger } from "@angular/animations";
 import { FormControl } from '@angular/forms';
 import { LoanListService } from 'src/app/@shared/Services/loan-list.service';
-import { filter, Observable, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, Observable, tap } from 'rxjs';
 
 
 @Component({
@@ -46,21 +46,21 @@ export class LoanListComponent implements OnInit {
 
   onValueChanges():void{
     this.listePret$ = this.search.valueChanges.pipe(
-      tap(valueInput => {
+      debounceTime(300),
+      tap((valueInput => {
         if (valueInput==="") {
           this.postListe();
           return;
         }
         this.loanListeService.getAllliste().pipe(
           tap(listes => {
-            
-            this.listePrets=listes.filter((client, index)=> client.client===valueInput);
-              
+            this.listePrets=listes.filter((client, index)=> client.client === valueInput);
           })
         )
         .subscribe()
-      })
+      }))
     );
+    this.listePret$.subscribe();
   }
 
   postListe(): void{
