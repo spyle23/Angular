@@ -23,13 +23,13 @@ export class LoanCreateComponent implements OnInit {
 
     this.formulaire = this.builder.group({
       responsable:[null, [Validators.required]],
-      montantPret:null,
-      pourcentage:null,
-      datePret:null,
-      dateRemboursement:null,
-      modePayementCap:null,
-      modePayementInt:null,
-      modeRemboursement:null,
+      montantPret:[null, [Validators.required]],
+      pourcentage:[null, [Validators.required]],
+      datePret:[null, [Validators.required]],
+      dateRemboursement:[null, [Validators.required]],
+      modePayementCap:[null, [Validators.required]],
+      modePayementInt:[null, [Validators.required]],
+      modeRemboursement:[null, [Validators.required]],
       commentaire:null
     })
   }

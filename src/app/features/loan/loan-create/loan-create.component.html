@@ -17,6 +17,9 @@
           >
             <option *ngFor="let responsable of responsables" [value]="responsable.firstName +' '+responsable.lastName">{{responsable.firstName+' '+responsable.lastName}}</option>
           </select>
+          <div *ngIf="formulaire.get('responsable')?.invalid && (formulaire.get('responsable')?.dirty||formulaire.get('responsable')?.touched)" >
+            <small *ngIf="formulaire.get('responsable')?.errors?.['required']" class="text-danger">Veuillez entrer un responsable</small>
+          </div>
         </div>
         <div class="col-md-4">
           <label class="sr-only" for="inlineFormInputGroup">Montant prêt</label>
@@ -34,6 +37,9 @@
               formControlName="montantPret"
             />
           </div>
+          <div *ngIf="formulaire.get('montantPret')?.invalid && (formulaire.get('montantPret')?.dirty||formulaire.get('montantPret')?.touched)" >
+            <small *ngIf="formulaire.get('montantPret')?.errors?.['required']" class="text-danger">veuillez entrer un montant prêt</small>
+          </div>
         </div>
         <div class="col-md-4">
           <label for="percentage">Pourcentage</label>
@@ -45,13 +51,18 @@
             class="form-control reg-opacity"
             formControlName="pourcentage"
           />
+          <div *ngIf="formulaire.get('pourcentage')?.invalid && (formulaire.get('pourcentage')?.dirty||formulaire.get('pourcentage')?.touched)" >
+            <small *ngIf="formulaire.get('pourcentage')?.errors?.['required']" class="text-danger">veuillez entrer un pourcentage</small>
+          </div>
         </div>
       </div>
-      <div class="row"></div>
       <div class="row">
         <div class="col-md-6">
           <label for="loanDate">Date du prêt</label>
           <input type="date" class="form-control reg-opacity" id="loanDate" formControlName="datePret" />
+          <div *ngIf="formulaire.get('datePret')?.invalid && (formulaire.get('datePret')?.dirty||formulaire.get('datePret')?.touched)" >
+            <small *ngIf="formulaire.get('datePret')?.errors?.['required']" class="text-danger">veuillez entrer la date du prêt</small>
+          </div>
         </div>
         <div class="col-md-6">
           <label for="reimbursementDate">Date de remboursement</label>
@@ -61,6 +72,9 @@
             id="reimbursementDate"
             formControlName="dateRemboursement"
           />
+          <div *ngIf="formulaire.get('dateRemboursement')?.invalid && (formulaire.get('dateRemboursement')?.dirty||formulaire.get('dateRemboursement')?.touched)" >
+            <small *ngIf="formulaire.get('dateRemboursement')?.errors?.['required']" class="text-danger">veuillez entrer la date de remboursement</small>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -74,6 +88,9 @@
           >
             <option *ngFor="let modePayement of modePayements" [value]="modePayement">{{modePayement}}</option>
           </select>
+          <div *ngIf="formulaire.get('modePayementCap')?.invalid && (formulaire.get('modePayementCap')?.dirty||formulaire.get('modePayementCap')?.touched)" >
+            <small *ngIf="formulaire.get('modePayementCap')?.errors?.['required']" class="text-danger">veuillez entrer le mode de payement capitale</small>
+          </div>
         </div>
         <div class="col-md-6">
           <label for="interestPaymentMode">Mode de payement des intérêts</label>
@@ -85,6 +102,9 @@
           >
             <option *ngFor="let modePayement of modePayements" [value]="modePayement">{{modePayement}}</option>
           </select>
+          <div *ngIf="formulaire.get('modePayementInt')?.invalid && (formulaire.get('modePayementInt')?.dirty||formulaire.get('modePayementInt')?.touched)" >
+            <small *ngIf="formulaire.get('modePayementInt')?.errors?.['required']" class="text-danger">veuillez entrer le mode de payement des intérêts</small>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -98,6 +118,9 @@
           >
             <option *ngFor="let modeRemboursement of modeRemboursements" [value]="modeRemboursement">{{modeRemboursement}}</option>
           </select>
+          <div *ngIf="formulaire.get('modeRemboursement')?.invalid && (formulaire.get('modeRemboursement')?.dirty||formulaire.get('modeRemboursement')?.touched)" >
+            <small *ngIf="formulaire.get('modeRemboursement')?.errors?.['required']" class="text-danger">veuillez entrer le mode de remboursement</small>
+          </div>
         </div>
         <div class="col-md-12">
           <label for="comment">Commentaire</label>
@@ -113,7 +136,7 @@
       </div>
       <div class="buttonSubm d-flex justify-content-between mt-3">
         <p class="note">enregistrer une note ici</p>
-        <button class="btn btn-secondary">enregistrer</button>
+        <button class="btn btn-secondary" [disabled]="formulaire.invalid" >enregistrer</button>
       </div>
     </form>
   </div>
