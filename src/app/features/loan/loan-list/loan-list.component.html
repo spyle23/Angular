@@ -5,9 +5,8 @@
   </div>
 </div>
 
-<i *ngIf="listePret$|async"></i>
-
-<table *ngIf="listePrets " class="table table-striped">
+<div class="container-fluid">
+  <table *ngIf="listePrets " class="table table-striped ">
     <thead>
       <tr>
         <th scope="col">ACTION</th>
@@ -45,3 +44,6 @@
     nextLabel="Next" (pageChange)="onTableChange($event)" >
     </pagination-controls>
   </div>
+</div>
+
+

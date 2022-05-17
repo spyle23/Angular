@@ -9,3 +9,6 @@ p.note{
 .buttonSubm{
     background-color: var(--bs-light);
 }
+.form-control.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
