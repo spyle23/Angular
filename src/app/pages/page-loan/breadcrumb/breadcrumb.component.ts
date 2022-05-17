@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { BreadCrumb } from 'src/app/@shared/model/breadCrumb.model';
 import { Menu } from 'src/app/@shared/model/menu.model';
 import { BreadcrumbsService } from 'src/app/@shared/Services/breadcrumbs.service';
@@ -18,7 +18,7 @@ export class BreadcrumbComponent implements OnInit {
 
   ngOnInit(): void {     
     this.breadCrumbs = this.breadcrumb.getBread();
-    console.log(this.route.url)
+    console.log(this.route.url);
   }
   onClick(index: number, event: any): void{
       event.stopPropagation();
