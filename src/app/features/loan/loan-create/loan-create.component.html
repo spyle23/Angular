@@ -17,8 +17,8 @@
           >
             <option *ngFor="let responsable of datas.responsibles" [value]="responsable.firstName +' '+responsable.lastName">{{responsable.firstName+' '+responsable.lastName}}</option>
           </select>
-          <div *ngIf="formulaire.get('responsable')?.invalid && (formulaire.get('responsable')?.dirty||formulaire.get('responsable')?.touched)" >
-            <small *ngIf="formulaire.get('responsable')?.errors?.['required']" class="text-danger">Veuillez entrer un responsable</small>
+          <div *ngIf="formulaire.get('responsible')?.invalid && (formulaire.get('responsible')?.dirty||formulaire.get('responsible')?.touched)" >
+            <small *ngIf="formulaire.get('responsible')?.errors?.['required']" class="text-danger">Veuillez entrer un responsable</small>
           </div>
         </div>
         <div class="col-md-6">
@@ -50,11 +50,12 @@
               id="inlineFormInputGroup"
               min="0"
               placeholder="Montant prêt"
-              formControlName="montantPret"
+              formControlName="amount"
             />
           </div>
-          <div *ngIf="formulaire.get('montantPret')?.invalid && (formulaire.get('montantPret')?.dirty||formulaire.get('montantPret')?.touched)" >
-            <small *ngIf="formulaire.get('montantPret')?.errors?.['required']" class="text-danger">veuillez entrer un montant prêt</small>
+          <div *ngIf="formulaire.get('amount')?.invalid && (formulaire.get('amount')?.dirty||formulaire.get('amount')?.touched)" >
+            <small *ngIf="formulaire.get('amount')?.errors?.['required']" class="text-danger">veuillez entrer un montant prêt</small>
+            <small *ngIf="formulaire.get('amount')?.errors?.['min']" class="text-danger" >veuillez entrer un nombre positif</small>
           </div>
         </div>
         <div class="col-md-4">
@@ -65,10 +66,11 @@
             id="percentage"
             max="100"
             class="form-control reg-opacity"
-            formControlName="pourcentage"
+            formControlName="percentage"
           />
-          <div *ngIf="formulaire.get('pourcentage')?.invalid && (formulaire.get('pourcentage')?.dirty||formulaire.get('pourcentage')?.touched)" >
-            <small *ngIf="formulaire.get('pourcentage')?.errors?.['required']" class="text-danger">veuillez entrer un pourcentage</small>
+          <div *ngIf="formulaire.get('percentage')?.invalid && (formulaire.get('percentage')?.dirty||formulaire.get('percentage')?.touched)" >
+            <small *ngIf="formulaire.get('percentage')?.errors?.['required']" class="text-danger">veuillez entrer un pourcentage</small>
+            <small *ngIf="formulaire.get('percentage')?.errors?.['min']" class="text-danger" >le pourcentage doit être positif</small>
           </div>
         </div>
         <div class="col-md-4">
@@ -77,21 +79,21 @@
             name="reimbursementMode"
             id="reimbursementMode"
             class="form-control reg-opacity"
-            formControlName="frequenceRemboursement"
+            formControlName="repaymentFrequency"
           >
             <option *ngFor="let frequenceRemboursement of datas.frequencesRemboursement" [value]="frequenceRemboursement.interval">{{frequenceRemboursement.interval}}</option>
           </select>
-          <div *ngIf="formulaire.get('frequenceRemboursement')?.invalid && (formulaire.get('frequenceRemboursement')?.dirty||formulaire.get('frequenceRemboursement')?.touched)" >
-            <small *ngIf="formulaire.get('frequenceRemboursement')?.errors?.['required']" class="text-danger">veuillez entrer la fréquence de remboursement</small>
+          <div *ngIf="formulaire.get('repaymentFrequency')?.invalid && (formulaire.get('repaymentFrequency')?.dirty||formulaire.get('repaymentFrequency')?.touched)" >
+            <small *ngIf="formulaire.get('repaymentFrequency')?.errors?.['required']" class="text-danger">veuillez entrer la fréquence de remboursement</small>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
           <label for="loanDate">Date du prêt</label>
-          <input type="date" class="form-control reg-opacity" id="loanDate" formControlName="datePret" />
-          <div *ngIf="formulaire.get('datePret')?.invalid && (formulaire.get('datePret')?.dirty||formulaire.get('datePret')?.touched)" >
-            <small *ngIf="formulaire.get('datePret')?.errors?.['required']" class="text-danger">veuillez entrer la date du prêt</small>
+          <input type="date" class="form-control reg-opacity" id="loanDate" formControlName="loanDate"/>
+          <div *ngIf="formulaire.get('loanDate')?.invalid && (formulaire.get('loanDate')?.dirty||formulaire.get('loanDate')?.touched)" >
+            <small *ngIf="formulaire.get('loanDate')?.errors?.['required']" class="text-danger">veuillez entrer la date du prêt</small>
           </div>
         </div>
         <div class="col-md-6">
@@ -100,10 +102,10 @@
             type="date"
             class="form-control reg-opacity"
             id="reimbursementDate"
-            formControlName="dateRemboursement"
+            formControlName="repaymentEndDate"
           />
-          <div *ngIf="formulaire.get('dateRemboursement')?.invalid && (formulaire.get('dateRemboursement')?.dirty||formulaire.get('dateRemboursement')?.touched)" >
-            <small *ngIf="formulaire.get('dateRemboursement')?.errors?.['required']" class="text-danger">veuillez entrer la date de remboursement</small>
+          <div *ngIf="formulaire.get('repaymentEndDate')?.invalid && (formulaire.get('repaymentEndDate')?.dirty||formulaire.get('repaymentEndDate')?.touched)" >
+            <small *ngIf="formulaire.get('repaymentEndDate')?.errors?.['required']" class="text-danger">veuillez entrer la date de remboursement</small>
           </div>
         </div>
       </div>
@@ -114,12 +116,12 @@
             name="paymentMode"
             id="paymentMode"
             class="form-control reg-opacity"
-            formControlName="modePaiement"
+            formControlName="benefitPaymentMethod"
           >
             <option *ngFor="let modePayement of datas.paymentsMethods" [value]="modePayement.label">{{modePayement.label}}</option>
           </select>
-          <div *ngIf="formulaire.get('modePaiement')?.invalid && (formulaire.get('modePaiement')?.dirty||formulaire.get('modePaiement')?.touched)" >
-            <small *ngIf="formulaire.get('modePaiement')?.errors?.['required']" class="text-danger">veuillez entrer le mode de paiement</small>
+          <div *ngIf="formulaire.get('benefitPaymentMethod')?.invalid && (formulaire.get('benefitPaymentMethod')?.dirty||formulaire.get('benefitPaymentMethod')?.touched)" >
+            <small *ngIf="formulaire.get('benefitPaymentMethod')?.errors?.['required']" class="text-danger">veuillez entrer le mode de paiement</small>
           </div>
         </div>
         <div class="col-md-6">
@@ -128,12 +130,12 @@
             name="interestPaymentMode"
             id="interestPaymentMode"
             class="form-control reg-opacity"
-            formControlName="modeRemboursement"
+            formControlName="capitalPaymentMethod"
           >
             <option *ngFor="let modeRemboursement of datas.paymentsMethods" [value]="modeRemboursement.label">{{modeRemboursement.label}}</option>
           </select>
-          <div *ngIf="formulaire.get('modeRemboursement')?.invalid && (formulaire.get('modeRemboursement')?.dirty||formulaire.get('modeRemboursement')?.touched)" >
-            <small *ngIf="formulaire.get('modeRemboursement')?.errors?.['required']" class="text-danger">veuillez entrer le mode de remboursement</small>
+          <div *ngIf="formulaire.get('capitalPaymentMethod')?.invalid && (formulaire.get('capitalPaymentMethod')?.dirty||formulaire.get('capitalPaymentMethod')?.touched)" >
+            <small *ngIf="formulaire.get('capitalPaymentMethod')?.errors?.['required']" class="text-danger">veuillez entrer le mode de remboursement</small>
           </div>
         </div>
       </div>
@@ -146,7 +148,7 @@
             rows="5"
             class="form-control reg-opacity"
             placeholder="Ajouter un commentaire..."
-            formControlName="commentaire"
+            formControlName="remark"
           ></textarea>
         </div>
       </div>

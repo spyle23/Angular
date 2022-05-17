@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DatasClient } from '../model/Responsable.model';
+import { liste } from 'src/app/@shared/model/liste';
+import { Client, DatasClient } from '../model/Responsable.model';
 
 @Injectable({
   providedIn: 'root',
@@ -64,5 +65,20 @@ export class LoanService {
     return new Observable((observer) => {
       observer.next(this.datas);
     });
+  }
+  createLoan(data: {responsible:string, client:string, amount:number, percentage:number, repaymentFrequency:string, loanDate:Date, repaymentEndDate:Date, benefitPaymentMethod:string, capitalPaymentMethod:string, remark:string}): Observable <any>{
+   return new Observable(observer =>{
+     observer.next(data);
+     const clientTemp = {
+      client:data.responsible,
+      montantPret:data.amount,
+      datePret:data.loanDate,
+      finContrat:data.repaymentEndDate,
+      pourcentage:data.percentage, 
+      montantInteret:(data.amount*data.percentage/100),
+      modePayement:data.capitalPaymentMethod
+     }
+     liste.unshift(clientTemp);
+   }); 
   }
 }
