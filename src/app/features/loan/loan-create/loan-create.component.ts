@@ -1,8 +1,12 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Responsable } from 'src/app/core/model/Responsable.model';
-import { PayementService } from 'src/app/core/service/payement.service';
-import { ResponsableService } from 'src/app/core/service/responsable.service';
+import { Observable, tap } from 'rxjs';
+import { DatasClient } from 'src/app/core/model/Responsable.model';
+import { LoanService } from 'src/app/core/service/loan.service';
+
+
+
 
 @Component({
   selector: 'app-loan-create',
@@ -10,26 +14,26 @@ import { ResponsableService } from 'src/app/core/service/responsable.service';
   styleUrls: ['./loan-create.component.scss']
 })
 export class LoanCreateComponent implements OnInit {
-  responsables!: Responsable[];
-  modePayements!:string[];
-  modeRemboursements!:string[];
+  datas$!:Observable<any>;
+  datasResponsables!:DatasClient;
   formulaire!:FormGroup;
-  constructor(private builder: FormBuilder, private responsableService: ResponsableService, private payementService: PayementService) { }
+  constructor(private builder: FormBuilder, private loanService: LoanService) { }
 
   ngOnInit(): void {
-    this.responsables = this.responsableService.getResponsables();
-    this.modePayements = this.payementService.getModePayements();
-    this.modeRemboursements = this.payementService.getModeRemboursements();
+    this.datas$ = this.loanService.getPageCreateData().pipe(
+      tap(valeur => console.log(valeur))
+    );
 
     this.formulaire = this.builder.group({
-      responsable:[null, [Validators.required]],
-      montantPret:[null, [Validators.required]],
+      responsible:[null, [Validators.required]],
+      client:[null, [Validators.required]],
+      montantPret:[null, [Validators.required, Validators.min(0)]],
       pourcentage:[null, [Validators.required]],
       datePret:[null, [Validators.required]],
       dateRemboursement:[null, [Validators.required]],
-      modePayementCap:[null, [Validators.required]],
-      modePayementInt:[null, [Validators.required]],
+      modePaiement:[null, [Validators.required]],
       modeRemboursement:[null, [Validators.required]],
+      frequenceRemboursement:[null, [Validators.required]],
       commentaire:null
     })
   }

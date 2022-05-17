@@ -1,5 +1,5 @@
 
-<main class="d-flex justify-content-center mx-auto">
+<main class="d-flex justify-content-center mx-auto" *ngIf="datas$|async as datas">
   <div class="col-12">
     <div class="py-0 mb-3">
       <h2 class="text-dark text-center bg-light">Formulaire de saisie d'un prêt</h2>
@@ -7,20 +7,36 @@
     </div>
     <form [formGroup]="formulaire" class="form container-fluid rounded p-2 p-md-3" (ngSubmit)="onSubmit()" >
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <label for="resp">Responsable</label>
           <select
             name="choixresp"
             class="form-control reg-opacity"
             id="resp"
-            formControlName="responsable"
+            formControlName="responsible"
           >
-            <option *ngFor="let responsable of responsables" [value]="responsable.firstName +' '+responsable.lastName">{{responsable.firstName+' '+responsable.lastName}}</option>
+            <option *ngFor="let responsable of datas.responsibles" [value]="responsable.firstName +' '+responsable.lastName">{{responsable.firstName+' '+responsable.lastName}}</option>
           </select>
           <div *ngIf="formulaire.get('responsable')?.invalid && (formulaire.get('responsable')?.dirty||formulaire.get('responsable')?.touched)" >
             <small *ngIf="formulaire.get('responsable')?.errors?.['required']" class="text-danger">Veuillez entrer un responsable</small>
           </div>
         </div>
+        <div class="col-md-6">
+          <label for="client">Client</label>
+          <select 
+            name="client" 
+            id="client"
+            class="form-control reg-opacity"
+            formControlName="client"
+            >
+            <option *ngFor="let client of datas.clients" [value]="client.companyName">{{client.companyName}}</option>
+          </select>
+          <div *ngIf="formulaire.get('client')?.invalid && (formulaire.get('client')?.dirty||formulaire.get('client')?.touched)" >
+            <small *ngIf="formulaire.get('client')?.errors?.['required']" class="text-danger">Veuillez entrer un client</small>
+          </div>
+        </div> 
+      </div>
+      <div class="row">
         <div class="col-md-4">
           <label class="sr-only" for="inlineFormInputGroup">Montant prêt</label>
           <div class="input-group mb-2">
@@ -55,6 +71,20 @@
             <small *ngIf="formulaire.get('pourcentage')?.errors?.['required']" class="text-danger">veuillez entrer un pourcentage</small>
           </div>
         </div>
+        <div class="col-md-4">
+          <label for="reimbursementMode">fréquence de remboursement </label>
+          <select
+            name="reimbursementMode"
+            id="reimbursementMode"
+            class="form-control reg-opacity"
+            formControlName="frequenceRemboursement"
+          >
+            <option *ngFor="let frequenceRemboursement of datas.frequencesRemboursement" [value]="frequenceRemboursement.interval">{{frequenceRemboursement.interval}}</option>
+          </select>
+          <div *ngIf="formulaire.get('frequenceRemboursement')?.invalid && (formulaire.get('frequenceRemboursement')?.dirty||formulaire.get('frequenceRemboursement')?.touched)" >
+            <small *ngIf="formulaire.get('frequenceRemboursement')?.errors?.['required']" class="text-danger">veuillez entrer la fréquence de remboursement</small>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col-md-6">
@@ -79,49 +109,35 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <label for="paymentMode">Mode de payement du capital</label>
+          <label for="paymentMode">Mode de paiement</label>
           <select
             name="paymentMode"
             id="paymentMode"
             class="form-control reg-opacity"
-            formControlName="modePayementCap"
+            formControlName="modePaiement"
           >
-            <option *ngFor="let modePayement of modePayements" [value]="modePayement">{{modePayement}}</option>
+            <option *ngFor="let modePayement of datas.paymentsMethods" [value]="modePayement.label">{{modePayement.label}}</option>
           </select>
-          <div *ngIf="formulaire.get('modePayementCap')?.invalid && (formulaire.get('modePayementCap')?.dirty||formulaire.get('modePayementCap')?.touched)" >
-            <small *ngIf="formulaire.get('modePayementCap')?.errors?.['required']" class="text-danger">veuillez entrer le mode de payement capitale</small>
+          <div *ngIf="formulaire.get('modePaiement')?.invalid && (formulaire.get('modePaiement')?.dirty||formulaire.get('modePaiement')?.touched)" >
+            <small *ngIf="formulaire.get('modePaiement')?.errors?.['required']" class="text-danger">veuillez entrer le mode de paiement</small>
           </div>
         </div>
         <div class="col-md-6">
-          <label for="interestPaymentMode">Mode de payement des intérêts</label>
+          <label for="interestPaymentMode">Mode de remboursement</label>
           <select
             name="interestPaymentMode"
             id="interestPaymentMode"
             class="form-control reg-opacity"
-            formControlName="modePayementInt"
-          >
-            <option *ngFor="let modePayement of modePayements" [value]="modePayement">{{modePayement}}</option>
-          </select>
-          <div *ngIf="formulaire.get('modePayementInt')?.invalid && (formulaire.get('modePayementInt')?.dirty||formulaire.get('modePayementInt')?.touched)" >
-            <small *ngIf="formulaire.get('modePayementInt')?.errors?.['required']" class="text-danger">veuillez entrer le mode de payement des intérêts</small>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="reimbursementMode">Mode de remboursement</label>
-          <select
-            name="reimbursementMode"
-            id="reimbursementMode"
-            class="form-control reg-opacity"
             formControlName="modeRemboursement"
           >
-            <option *ngFor="let modeRemboursement of modeRemboursements" [value]="modeRemboursement">{{modeRemboursement}}</option>
+            <option *ngFor="let modeRemboursement of datas.paymentsMethods" [value]="modeRemboursement.label">{{modeRemboursement.label}}</option>
           </select>
           <div *ngIf="formulaire.get('modeRemboursement')?.invalid && (formulaire.get('modeRemboursement')?.dirty||formulaire.get('modeRemboursement')?.touched)" >
             <small *ngIf="formulaire.get('modeRemboursement')?.errors?.['required']" class="text-danger">veuillez entrer le mode de remboursement</small>
           </div>
         </div>
+      </div>
+      <div class="row">
         <div class="col-md-12">
           <label for="comment">Commentaire</label>
           <textarea
