@@ -4,7 +4,7 @@ import { Client } from 'src/app/@shared/model/client.model';
 import { trigger, style, keyframes, transition, animate, query, stagger } from "@angular/animations";
 import { FormControl } from '@angular/forms';
 import { LoanListService } from 'src/app/@shared/Services/loan-list.service';
-import { debounceTime, distinctUntilChanged, filter, Observable, tap } from 'rxjs';
+import { debounceTime, Observable, tap } from 'rxjs';
 
 
 @Component({
@@ -25,7 +25,7 @@ import { debounceTime, distinctUntilChanged, filter, Observable, tap } from 'rxj
       ])
     ])
   ]
-    
+
 })
 export class LoanListComponent implements OnInit {
   listePrets!:Client[];
@@ -34,7 +34,7 @@ export class LoanListComponent implements OnInit {
   tableSize: number=5;
   count:number = 0;
 
-  
+
   search:FormControl= new FormControl(null);
   constructor(private loanListeService: LoanListService) { }
 
@@ -54,7 +54,7 @@ export class LoanListComponent implements OnInit {
         }
         this.loanListeService.getAllliste().pipe(
           tap(listes => {
-            this.listePrets=listes.filter((client, index)=> client.client === valueInput);
+            this.listePrets=listes.filter(client => client.client===valueInput);
           })
         )
         .subscribe()
