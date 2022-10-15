@@ -7,27 +7,15 @@ import { LoanCalendarComponent } from './loan-calendar/loan-calendar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
-
-
+FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
 
 @NgModule({
-  declarations: [
-    LoanCreateComponent,
-   LoanListComponent,
-   LoanCalendarComponent
-  ],
-  imports: [
-    CommonModule,
-
-    NgxPaginationModule,
-
-    ReactiveFormsModule
-
-  ],
-  exports: [
-    LoanCreateComponent,
-    LoanListComponent
-  ]
+  declarations: [LoanCreateComponent, LoanListComponent, LoanCalendarComponent],
+  imports: [CommonModule, NgxPaginationModule, ReactiveFormsModule, FullCalendarModule],
+  exports: [LoanCreateComponent, LoanListComponent],
 })
-export class LoanModule { }
+export class LoanModule {}

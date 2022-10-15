@@ -54,7 +54,9 @@ export class LoanListComponent implements OnInit {
         }
         this.loanListeService.getAllliste().pipe(
           tap(listes => {
-            this.listePrets=listes.filter(client => client.client===valueInput);
+            const expression = `^${valueInput}`;
+            const regex = new RegExp(expression, 'i');
+            this.listePrets=listes.filter((client, index)=> client.client.match(regex));
           })
         )
         .subscribe()
