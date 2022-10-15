@@ -25,7 +25,7 @@ import { debounceTime, distinctUntilChanged, filter, Observable, tap } from 'rxj
       ])
     ])
   ]
-    
+
 })
 export class LoanListComponent implements OnInit {
   listePrets!:Client[];
@@ -34,7 +34,7 @@ export class LoanListComponent implements OnInit {
   tableSize: number=5;
   count:number = 0;
 
-  
+
   search:FormControl= new FormControl(null);
   constructor(private loanListeService: LoanListService) { }
 
@@ -54,7 +54,9 @@ export class LoanListComponent implements OnInit {
         }
         this.loanListeService.getAllliste().pipe(
           tap(listes => {
-            this.listePrets=listes.filter((client, index)=> client.client === valueInput);
+            const expression = `^${valueInput}`;
+            const regex = new RegExp(expression, 'i');
+            this.listePrets=listes.filter((client, index)=> client.client.match(regex));
           })
         )
         .subscribe()
